@@ -1,0 +1,110 @@
+<!-- <div class="jumbotron jumbotron-fluid"> -->
+    <div>
+        <form (ngSubmit)="addpuzzle()" #puzzleForm="ngForm">
+          <div class="form-group">
+    
+            
+          <div class="form-group">
+            <label for="name">Puzzle Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id=" puzzlename"
+              required
+              [(ngModel)]="puzzle.puzzle_name"
+              name="puzzlename"
+              #puzzlename="ngModel"
+              placeholder="Puzzle Name"
+    
+            />
+            <div
+              [hidden]="puzzlename.valid || puzzlename.pristine"
+              class="alert alert-danger"
+            >
+              Name is required
+            </div>
+          </div>
+            <label for="question">Puzzle Question:</label>
+            <input
+              type="text"
+              class="form-control"
+              id=" addquestion"
+              required
+              [(ngModel)]="puzzle.puzzle_question"
+              name="question"
+              #question="ngModel"
+              placeholder="Puzzle Question"
+            />
+            <div
+              [hidden]="question.valid || question.pristine"
+              class="alert alert-danger"
+            >
+              Question is required
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label for="answer"> Puzzle Answer:</label>
+            <input
+              type="text"
+              class="form-control"
+              id=" puzzleanswer"
+              required
+              [(ngModel)]="puzzle.puzzle_answer"
+              name="puzzleanswer"
+              #puzzleanswer="ngModel"
+              placeholder="Puzzle Answer"
+    
+            />
+            <div
+              [hidden]="puzzleanswer.valid || puzzleanswer.pristine"
+              class="alert alert-danger"
+            >
+              Answer is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="explanation">Puzzle Explaination:</label>
+            <input
+              type="text"
+              class="form-control"
+              id=" puzzleexplanation"
+              required
+              [(ngModel)]="puzzle.puzzle_explanation"
+              name="puzzleexplanation"
+              #puzzleexplanation="ngModel"
+              placeholder="Puzzle's Explaination"
+    
+            />
+            <div
+              [hidden]="puzzleanswer.valid || puzzleanswer.pristine"
+              class="alert alert-danger"
+            >
+              Explanation is required
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-lg mx-auto d-block btn-primary"
+            [disabled]="!puzzleForm.form.valid"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    <!-- </div> -->
+    
+  <ng-template #modalcontent let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title">Puzzle Submitted</h2>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <p class="mt-1">Puzzle have been added successfully in backend database.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

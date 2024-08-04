@@ -1,0 +1,87 @@
+<div>
+    <nav class="navbar navbar-expand-md ">
+      <a class="navbar-brand" (click)="redirectToHomePage()">Bestify Your Time</a>
+        <!-- Toggler & collapsible Button -->
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto"  routerLinkActive="active">
+        <li class="nav-item" *ngIf="isLoggedIn" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <div class="link-with-icon">
+          <fa-icon [icon]="faHome"></fa-icon>
+          <a class="nav-link" (click)="redirectToHomePage()">Home</a>
+        </div>
+        </li>
+      
+        <li class="nav-item" *ngIf="isLoggedIn" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+          <fa-icon [icon]="faQuestion"></fa-icon>
+          <a class="nav-link" (click)="gotoPage('quiz')">Quiz</a>
+          </div>
+        </li>
+        
+        <li class="nav-item" *ngIf="isLoggedIn" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+          <fa-icon [icon]="faPuzzlePiece"></fa-icon>
+          <a class="nav-link" (click)="gotoPage('puzzle')">Puzzle</a>
+          </div>
+        </li>
+        
+        <li class="nav-item" *ngIf="isLoggedIn" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+          <fa-icon [icon]="faGamepad"></fa-icon>
+          <a class="nav-link" (click)="gotoPage('game')">Games</a>
+          </div>
+        </li>
+        
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+          <fa-icon [icon]="faListAlt"></fa-icon>
+          <a class="nav-link" routerLink="about">About this site</a>
+        </div>
+        </li>
+
+<!--         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+          <a class="nav-link" routerLink="contact">About developer</a>
+          </div>
+        </li> -->
+
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+            <fa-icon [icon]="faUserPlus"></fa-icon>
+          <a class="nav-link" routerLink="/register">Sign Up</a>
+          </div>
+        </li>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+            <fa-icon [icon]="faSignInAlt"></fa-icon>
+          <a class="nav-link" routerLink="/login">Login</a>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+            <fa-icon [icon]="faUserCircle"></fa-icon>
+          <a routerLink="/profile" class="nav-link" >{{ username }}</a>
+        </div>
+        </li>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div class="link-with-icon">
+            <fa-icon [icon]="faSignOutAlt"></fa-icon>
+          <a class="nav-link" (click)="logout()">Log Out</a>
+          </div>
+        </li>
+      </ul>
+
+      </div>
+    </nav>
+  </div>

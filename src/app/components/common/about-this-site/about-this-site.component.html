@@ -1,0 +1,66 @@
+ 
+    <div class="container">
+    <h1>About this site</h1>
+    <p> 'Bestify your time' is an entertainment website which is built using following technologies :
+      <br>Frontend : <b>Angular 10</b> framwework and <b>Bootstrap</b> library 
+      <br>Backend : <b>Java</b> with <b>JPA</b> or <b>Hibernate</b> and <b>Spring Boot</b>
+      <br>Database : <b>MYSQL</b>
+      <br>Java Back-end code : <a href="https://github.com/AyushKrishna/heroku-bestify-java"> https://github.com/AyushKrishna/heroku-bestify-java</a>
+      <br>Angular Front-end code : <a href="https://github.com/AyushKrishna/heroku-bestigy-angular"> https://github.com/AyushKrishna/heroku-bestigy-angular</a>
+      
+
+      <br><br> This site incorporates 2 interfaces : 
+      <br>1. <b>User</b> interface which can perform user related tasks, such as, attempting quizzes and puzzles, playing games etc 
+      <br> 2. <b>Admin</b> interface which can perform admin related tasks such as adding quizzes/puzzles for users in database etc. 
+      
+      <br><br>Select an option below for more information on each interface hosted by this website </p> 
+
+   <div>
+    <ngb-accordion #a="ngbAccordion" >
+      <ngb-panel id="custom-panel-1" title="User Interface">
+        <ng-template ngbPanelContent>
+          <div class="container">
+          <p>
+          The user can select from following options : attempt quiz, solve puzzles or play games.Each one of the following is discussed here : 
+          <br><br><b>1. Quiz </b>
+          <br>This site contains many quizzes which any user can attempt any number of times. A quiz contains a list of multiple-choice questions which have to be solved in a given amount of time. A timer is shown as the quiz starts and after the given time elapses the quiz is automatically submitted. 
+          <br>An important feature of the quiz is the <b>AutoSave</b> feature. The 'AutoSave' feature allows saving the state of the quiz (such as questions attempted and the time remaining) in the backend database. The 'AutoSave' feature is available in 2 modes : automatic and manual mode. Automatic saving happens after each question is answered by the user while manual saving happens when user manually clicks on "Pause Quiz" button. Once saved, the quiz can be resumed from the same point after any number of days as the saved state is not deleted until either the quiz is completed or that state is overwritten by another newer state. Thus we can say that <b>'AutoSave' feature always tracks user progress and keeps it intact and updated</b>. 
+
+          <br><br><b>2. Games</b>
+          <br> This site currently has 2 games which the users can play as many number of times as he/she wants. The games are Snakes and Tetris. After every game end, the scores are stored in the backend DB.
+
+          <br><br><b>3. Puzzles</b>
+          <br>A puzzle usually contains one question which needs to be answered in one word. After answering the puzzle the correct answer with explanation is shown to the user. The user can attempt any quiz any number of times but the result is not stored for the puzzles.
+        </p>
+        <br><button class="btn btn-block btn-success" (click)="loginGuestUser()">Login as Guest User and check out the site </button>
+        </div>
+        </ng-template>
+      </ngb-panel>
+        <ngb-panel title="Admin Interface">
+        <ng-template ngbPanelContent>
+          <p>
+          The admin can select from following options : Admin Quiz Task, Admin Puzzle Task, Admin Game Tasks. Each one is explained further: 
+          <br><br> <b>1. Admin Quiz Tasks</b>
+          <br> This consists of following : 
+          <br>1. Add new quiz for all the users in backend database
+          <br>2. Check which quiz is attempted by how many users
+
+          <br><br> <b>2. Admin Puzzle Tasks</b>
+          <br> This consists of following : 
+          <br>1. Create new puzzle for the users
+
+          <br><br> <b>3. Admin Game Tasks</b>
+          <br> This consists of following : 
+          <br>1. Check top scorer of the game
+          <br>2. Check which game is more popular, ie, which game is played by how many users
+         </p>
+         
+         <br><button class="btn btn-block btn-success" (click)="loginGuestAdmin()">Login as Guest Admin and check out admin console </button>
+
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+
+   </div>
+  
+  

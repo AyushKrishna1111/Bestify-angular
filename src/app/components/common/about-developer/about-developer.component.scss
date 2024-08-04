@@ -1,0 +1,64 @@
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+.blank{
+border-style:solid;
+border-width:1px; 
+border-color: black;
+background-color: lightgrey;
+height: 70px;
+width: 100%;
+}
+
+
+
+@include media-breakpoint-down(md) {
+    .name-div{
+        border-style:solid;
+        border-width:3px;
+        border-color: goldenrod;
+        padding: 10px;
+    }
+    
+    .maincontainer {
+    display: flex;
+    flex-direction: column-reverse;
+    }
+
+ .leftcontainer{
+    //  background-color: cyan;
+    text-align: left;
+    flex-direction: column-reverse;
+    
+ }
+
+}
+
+@include media-breakpoint-up(md) {
+    .name-div{
+        border-style:none;
+    }
+    
+    .name{
+        border-style:solid;
+        border-width:3px;
+        border-color: goldenrod;
+        padding: 10px;
+        z-index: 1;
+        background-color: white;
+    }
+
+    .maincontainer {
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .leftcontainer{
+        // background-color: lightcoral;
+        text-align: right;
+        flex-direction: column;
+        border-style:solid;
+    border-width:5px;  
+    border-color:transparent orangered transparent transparent;
+     }
+}

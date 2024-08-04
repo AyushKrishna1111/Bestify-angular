@@ -1,0 +1,42 @@
+
+@media screen and (max-width: 600px) {
+    .error-page{
+        // width: 500px;
+        // height: 500px;
+        // border-radius: 3%;
+        // position: relative;
+        
+        .error-img{
+            position: relative;
+            // left: 30%;
+            max-width: 100%;
+        }
+    
+        .error-message{
+            position: relative;
+            left: 20%;
+        }
+    } 
+  }
+  
+.error-page{
+    // width: 500px;
+    height: 500px;
+    border-radius: 3%;
+    position: relative;
+    
+    .error-img{
+        position: relative;
+        left: 30%;
+    }
+
+    .error-message{
+        position: relative;
+        left: 20%;
+    }
+}
+
+.border{
+    color : #6247AA
+}
+

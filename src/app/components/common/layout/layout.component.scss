@@ -1,0 +1,9 @@
+  div#mycontent {
+    margin:2em 2em 2em 2em;
+  } 
+
+  div#myfooter {
+    position: absolute;        /* for it to disappear under last body element */
+    bottom: 0;                 /* so the footer can stick to the bottom*/
+    width: 100%;
+  }

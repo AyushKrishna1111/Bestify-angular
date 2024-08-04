@@ -1,0 +1,253 @@
+<!-- <p class="h2 text-center">Add Quiz</p> -->
+<!-- <hr> -->
+<form #quizForm="ngForm" novalidate>
+    <div class="form-group">
+      <label class="h6"> Title </label>
+      <input
+        type="text"
+        required
+        class="form-control"
+        [class.is-invalid]="title.invalid && title.touched"
+        name="title"
+        #title="ngModel"
+        [(ngModel)]="quiz.quiz_name"
+      />
+      <small class="text-danger" [class.d-none]="title.valid || title.untouched"
+        >Title cannot be empty</small
+      >
+    </div>
+  
+    <div class="form-group">
+      <label class="h6"> Description </label>
+      <textarea
+        class="form-control"
+        #description
+        name="desc"
+        [(ngModel)]="quiz.description"
+        placeholder="Add a description"
+      ></textarea>
+    </div>
+  
+    <div class="form-group">
+      <label class="h6"> Category </label>
+      <select
+        required
+        name="cat_sel"
+        #catSelect="ngModel"
+        [class.is-invalid]="catSelect.invalid && catSelect.touched"
+        [(ngModel)]="quiz.quiz_cat_id"
+        class="form-control"
+      >
+        <option value="">SELECT A CATEGORY</option>
+        <option
+          *ngFor="let category of categories"
+          [value]="category.quiz_cat_id"
+        >
+          {{ category.quiz_cat_name }}
+        </option>
+      </select>
+      <small
+        class="text-danger"
+        [class.d-none]="catSelect.valid || catSelect.untouched"
+        >Please choose a category</small
+      >
+    </div>
+  
+    <div class="form-group">
+      <p class="h6">Enter Time Limit for Quiz</p>
+      <small class="text-danger" [class.d-none]="timeError === ''">{{
+        timeError
+      }}</small>
+      <div class="row">
+        <div class="col-md-4">
+          <label>Hours : </label>
+          <input
+            type="number"
+            class="form-control"
+            name="hours"
+            #hr="ngModel"
+            [(ngModel)]="quiz.hr"
+            (change)="validateHour()"
+            (blur)="validateHour()"
+            [class.is-invalid]="hr.touched && hourError !== ''"
+          />
+          <small class="text-danger" [class.d-none]="hourError === ''">{{
+            hourError
+          }}</small>
+        </div>
+        <div class="col-md-4">
+          <label> Minutes: </label>
+          <input
+            type="number"
+            class="form-control"
+            name="minutes"
+            #min="ngModel"
+            [(ngModel)]="quiz.min"
+            (change)="validateMinute()"
+            (blur)="validateMinute()"
+          />
+          <small class="text-danger" [class.d-none]="minuteError === ''">{{
+            minuteError
+          }}</small>
+        </div>
+        <div class="col-md-4">
+          <label> Seconds: </label>
+          <input
+            type="number"
+            class="form-control"
+            name="second"
+            #sec="ngModel"
+            [(ngModel)]="quiz.sec"
+            (change)="validateSeconds()"
+            (blur)="validateSeconds()"
+          />
+          <small class="text-danger" [class.d-none]="secondError === ''">{{
+            secondError
+          }}</small>
+        </div>
+      </div>
+    </div>
+  
+    <p class="h6">Add Questions to Quiz</p>
+    <small class="text-danger" [class.d-none]="!noQuestionAdded"
+      >No questions added in Quiz</small
+    >
+    <div class="form-group">
+      <label> Question : </label>
+      <input
+        type="text"
+        #question
+        class="form-control"
+        name="ques"
+        [(ngModel)]="ques.question"
+      />
+      <small class="text-danger" [class.d-none]="questionError === ''">{{
+        questionError
+      }}</small>
+    </div>
+    <div class="form-group">
+      <label> Option (a) </label>
+      <input
+        type="text"
+        class="form-control"
+        name="op1"
+        [(ngModel)]="ques.option1"
+      />
+      <small class="text-danger" [class.d-none]="opt1Error === ''">{{
+        opt1Error
+      }}</small>
+    </div>
+    <div class="form-group">
+      <label> Option (b) </label>
+      <input
+        type="text"
+        class="form-control"
+        name="op2"
+        [(ngModel)]="ques.option2"
+      />
+      <small class="text-danger" [class.d-none]="opt2Error === ''">{{
+        opt2Error
+      }}</small>
+    </div>
+    <div class="form-group">
+      <label> Option (c) </label>
+      <input
+        type="text"
+        class="form-control"
+        name="op3"
+        [(ngModel)]="ques.option3"
+      />
+      <small class="text-danger" [class.d-none]="opt3Error === ''">{{
+        opt3Error
+      }}</small>
+    </div>
+    <div class="form-group">
+      <label> Option (d) </label>
+      <input
+        type="text"
+        class="form-control"
+        name="op4"
+        [(ngModel)]="ques.option4"
+      />
+      <small class="text-danger" [class.d-none]="opt4Error === ''">{{
+        opt4Error
+      }}</small>
+    </div>
+    <div class="form-group">
+      <label> Correct Option </label>
+      <select
+        class="form-control"
+        name="correctOpt"
+        [(ngModel)]="ques.correctAnswer"
+      >
+        <option value="">SELECT CORRECT OPTION</option>
+        <option value="a">a</option>
+        <option value="b">b</option>
+        <option value="c">c</option>
+        <option value="d">d</option>
+      </select>
+      <small class="text-danger" [class.d-none]="corAnsError === ''">{{
+        corAnsError
+      }}</small>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary" (click)="onAddButtonClick()">
+        Add Question
+      </button>
+    </div>
+    <div>
+      <app-quiz-add-question
+        (remove)="removeQuestion($event)"
+        *ngFor="let ques of quiz.questions; let i = index"
+        [ques]="ques"
+        [index]="i"
+      ></app-quiz-add-question>
+    </div>
+    <button class="btn btn-success btn-block mt-5" (click)="onSubmit(quizForm)">
+      Submit Quiz
+    </button>
+  </form>
+  
+  <!-- The Modal
+  <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+       
+        <div class="pt-3 bg-primary text-white">
+          <p class="h6 text-center">Quiz Added Successfully</p>
+        </div>
+  
+       
+        <div class="modal-body">
+          <img
+            src="./assets/images/addedquiz.png"
+            height="250px"
+            width="250px"
+          />
+        </div>
+  
+       
+        <div class="modal-footer">
+          <button class="btn btn-danger btn-block" (click)="hideModalFunc()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div> -->
+  
+  <ng-template #modalcontent let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title">Quiz Submitted</h2>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <p class="mt-1">Quiz have been added successfully in backend database.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

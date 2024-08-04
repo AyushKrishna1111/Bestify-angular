@@ -1,0 +1,18 @@
+<div class="container">
+  <h2> Select a quiz category </h2>
+<div>
+    <div class="row">
+      <div class="card m-4" *ngFor="let item of data">
+        <!-- <img src="../../../../assets/images/art.jpg" class="card-img-top quizcategory-card-img"> -->
+        <div class="card-body">
+          <h1 class="card-title text-center">{{ item.quiz_cat_name }}</h1>
+          <p class="card-text">
+            here are some {{ item.quiz_cat_name }} quizzes for you...
+          </p>
+          <!-- <a routerLink="/user/users/quizes/{{data[0].quize_cat_id}}"  class="btn btn-primary">go to {{data[0].quize_cat_name}} quizes</a> -->
+          <a [routerLink]="['quizcategories', item.quiz_cat_id]" class="btn btn-block btn-success"> Checkout quizzes </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

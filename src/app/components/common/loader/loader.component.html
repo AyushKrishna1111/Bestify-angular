@@ -1,0 +1,8 @@
+<div *ngIf="isLoading | async" class="overlay">
+<!-- <div class="overlay"> -->
+    <div class="column contentdiv">
+    <h2>  LOADING... </h2>
+    <h2> PLEASE WAIT </h2>
+    <mat-spinner class="spinner" [color]="color" [value]="value"></mat-spinner>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="section-title">Puzzle Admin Tasks</h1>
+  <p> Select the tab corresponding to the admin task you want to do.</p>
+  <br>
+<div class="container">
+<ul class="nav nav-tabs nav-justified">
+  <li class="nav-item">
+    <a class="nav-link" [ngClass]="{'active' : selectedTab === 'addPuzzle'}" href="/admin/puzzle/addPuzzle">Add New Puzzle</a>
+  </li>
+</ul>
+<div class="px-2 py-4">
+<router-outlet></router-outlet>
+</div>
+</div>
+</div>

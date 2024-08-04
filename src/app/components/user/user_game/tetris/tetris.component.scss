@@ -1,0 +1,25 @@
+:host {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 42px;
+    width: 500px;
+  }
+  
+  .sidebar {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 36px;
+  }
+  
+  
+  .tetris{
+    height: 400px;
+    width: 400px;
+    position: relative;
+    display: block;
+    margin: auto;
+    background-color: #DEC9E9;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+  }

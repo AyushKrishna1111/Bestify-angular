@@ -1,0 +1,25 @@
+
+<div class="container" >
+    <p><b> Note : These game can only be played on desktops. Mobile devices / touch screen devices are not supported. </b></p>
+    <div class="row">
+        <div class="card m-5" style="width: 18rem;">
+            <img class="card-img-top" [src]="snakeGameImageLink" alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title text-center">Snake</h2>
+                <p class="card-text">Feed the hungry snake. With 3 Modes to play!</p>
+                <button (click)="selectGame('snake')" class="btn btn-block btn-success">Play Now</button>
+                <!-- <button  class="btn btn-primary">Play Now</a> -->
+            </div>
+        </div>
+        <div class="card m-5" style="width: 18rem;">
+            <img class="card-img-top" [src]="tetrisGameImageLink" alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title text-center">Tetris</h2>
+                <p class="card-text">Tetris tiles!</p>
+                <button (click)="selectGame('tetris')" class="btn btn-block btn-success">Play Now</button>
+                <!-- <button  class="btn btn-primary">Play Now</a> -->
+            </div>
+        </div>
+    </div>
+    
+</div>

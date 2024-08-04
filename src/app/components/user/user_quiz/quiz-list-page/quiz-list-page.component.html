@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="list row">
+      <div class="col-md-12">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by quiz title"
+            (input)="OnInput($event)"
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              (click)="searchByTitle()"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- search functionality ends here -->
+  
+  <div class="container ">
+    <div *ngFor="let item of data">
+      <div class="d-flex justify-content-between border m-1">
+        <div class="mr-4">
+          <h1>{{ item.quiz_name }}</h1>
+        </div>
+        <div>
+          <button
+            class="btn btn-block btn-success "
+            [routerLink]="['quiz', item.quiz_id]"
+          >
+            PLAY
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

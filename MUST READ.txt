@@ -1,0 +1,147 @@
+dependencies installed :-
+-----------------------------
+
+
+1. FONT-AWESOME :
+
+INSTALL STEPS LINK :-
+https://www.npmjs.com/package/@fortawesome/angular-fontawesome
+
+SEE USAGE SECTION (given in same page) FOR IMPORTING THE REQUIRED MODULES
+
+2. BOOTSTRAP
+
+RUN THIS COMMAND :-
+
+ng add @ng-bootstrap/ng-bootstrap
+ 
+npm install popper.js --save // if this is not installed components may not work such as nav bar will not expanding on clicking its button 
+npm install jquery --save // this is required because bootstrap is intelnally written with jquery
+
+after this add the following lines in angular.json otherwise bootstarp components will not work properly
+
+"styles": [
+"node_modules/bootstrap/dist/css/bootstrap.min.css",
+],
+"scripts": [
+"./node_modules/jquery/dist/jquery.min.js",
+"./node_modules/popper.js/dist/umd/popper.min.js",
+"./node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
+
+3. ngcharts.js and ng2-charts
+
+dont install from main site as it is not compatible with my code :
+https://www.npmjs.com/package/ng2-charts
+
+instead found actual soln here :
+https://stackoverflow.com/questions/66936633/chart-js-ng2-charts-not-working-on-angular2
+
+SOLUTION TAKEN FROM STACKOVERFLOW :-
+RUN THESE 2 COMMANDS :
+npm install chart.js@2.9.3 --save
+npm install ng2-charts@2.2.3 --save
+
+THEN run npm i and restart the project.
+
+------------------------------------------------------
+
+modules to import in your project (otherwise code will break ):
+
+HttpClientModule
+FormsModule
+FontAwesomeModule
+ChartsModule
+
+// for rest see app.module.ts
+
+----------------------------------------------------------
+
+TODO :
+
+Use the bootstrap components from ng angular library installed (like accordion used in about-the-site component) instead of using regular html (
+like header , bootsrap tabs used in admin game,admin quiz componnet etc)
+ 
+CHECK : https://bootsnipp.com/ for good login,search bar, footer and other UI components that can be used in project.
+
+------------------------------------------------------------
+
+IMPORTANT STUFF :
+
+1. Footer not fixed issue resolved from following link :
+
+https://stackoverflow.com/questions/18990675/how-to-fix-a-footer-overlapping-content
+
+Go for this answer :-
+" I believe you were looking for a sticky footer that stays while not being fixed to the bottom of the page (so no overlap). "
+
+
+2. Sending data from service to component
+
+https://stackoverflow.com/questions/34376854/delegation-eventemitter-or-observable-in-angular/35568924#35568924
+
+
+3. Writing media query using bootstrap size versioning 
+
+First in your scss file add this line in top :-
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+then add your media queries. See header.scss file for example
+
+
+---------------------------------------------------------------
+
+DOUBTS
+
+- Why nth-of-type css pseudo classes are not working as expected in admin-homepage.component.scss file.
+
+----------------------------------------------------------------
+
+
+ADDITIONAL STUFF 
+
+- FOR COLOR COMBINATION EXAMPLE check this out
+https://tympanus.net/codrops/2011/12/08/25-examples-of-perfect-color-combinations-in-web-design/
+
+- For bootstrap components example
+https://bootsnipp.com/
+
+
+
+-----------------------------------------------------------------
+
+
+
+CHANGE LOG :
+
+After clicking on logout, user/admin is redirected to home page.
+After successful sign in the user is redirected to user homepage while admin is redirected to admin homepage.
+Removed extra links on header as 3 of them are directing to homepage only.
+
+Put Quiz, puzzle , game link on top nav bar after login of user so user doesnt have to go back to goto main menu. 
+
+Add route guard so that no one can open routes by entering url after logout.
+
+-- change log list id #1
+Added icons in the header.
+Installed popper.js and jquery as bootstarp components require it for proper working
+changed default file to scss instead of css
+Added media query for bootstrap in header.scss file
+
+-- change log list id #2
+Modified user frontpage 
+Modified Admin homepage, admin quiz page, admin puzzle page, admin game page 
+
+-- change log list id #3
+Added frontpage, about this site page and about developer page 
+Modified User homepage, user quiz page, user puzzle page, user game page
+Added guest user/admin login functionality. 
+
+-- change log list id #4
+modified quiz list page UI
+added autosave feature modal on fresh quiz open on quiz-display component
+added disable next and previous button functionality on puzzle page  
+
+-- change log list id #5
+changed normal bootstrap to ng-angular bootstrap in puzzle-add, quiz-add and quiz-display components

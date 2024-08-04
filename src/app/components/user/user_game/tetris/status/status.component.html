@@ -1,0 +1,13 @@
+<p>Time: {{ this.getTimeElapsed() }}</p>
+<p>Score: {{ this.getScore() }}</p>
+<p>Speed: {{ this.getSpeed() }}</p>
+
+<section class="controls" *ngIf="!isOver()">
+  <button class="btn" (click)="togglePause()">{{ this.isPaused() ? 'Continue' : 'Pause' }}</button>
+  <button class="btn" (click)="reset()">Reset</button>
+</section>
+<section class="controls" *ngIf="isOver()">
+  <p><strong>Game over!</strong></p>
+  <p>You scored <strong>{{ this.getScore() }}</strong></p>
+  <button (click)="reset()">Submit Your Score</button>
+</section>

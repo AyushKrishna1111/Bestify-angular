@@ -1,0 +1,5 @@
+<div class="row" *ngFor="let row of board">
+  <div class="cell" *ngFor="let cell of row">
+    <app-pixel value="{{ cell }}"></app-pixel>
+  </div>
+</div>

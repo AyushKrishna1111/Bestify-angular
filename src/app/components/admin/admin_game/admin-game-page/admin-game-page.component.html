@@ -1,0 +1,47 @@
+<!-- <div class="container row">
+    <div style="display: block; width: 50%">
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+      >
+      </canvas>
+    </div>
+    <div style="display: block; width: 50%">
+      <canvas
+        baseChart
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend"
+        [colors]="chartColors"
+      >
+      </canvas>
+    </div>
+  </div>
+   -->
+
+  <div class="container">
+		<h1 class="section-title">Games Admin Tasks</h1>
+    <p> Select the tab corresponding to the admin task you want to do.</p>
+    <br>
+  <div class="container">
+  <ul class="nav nav-tabs nav-justified">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active' : selectedTab === 'topScorer'}" href="/admin/game/topScorer">Top Scorer</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active' : selectedTab === 'gamesPlayedCount'}" aria-current="page" href="/admin/game/gamesPlayedCount">Games Played Count</a>
+    </li>
+  </ul>
+  <div class="px-2 py-4">
+  <router-outlet></router-outlet>
+  </div>
+</div>
+</div>

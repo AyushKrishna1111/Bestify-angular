@@ -1,0 +1,18 @@
+<div class="question">
+    <label> Question : {{ ques.question }} </label>
+    <div class="row">
+      <div class="col-9">
+        <label> (a) {{ ques.option1 }} </label>
+        <br />
+        <label> (b) {{ ques.option2 }} </label>
+        <br />
+        <label> (c) {{ ques.option3 }} </label>
+        <br />
+        <label> (d) {{ ques.option4 }} </label>
+      </div>
+      <div class="col-3">
+        <button class="btn btn-danger" (click)="remove()">Remove</button>
+      </div>
+    </div>
+  </div>
+  

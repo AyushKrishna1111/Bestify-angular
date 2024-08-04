@@ -1,0 +1,35 @@
+<form>
+    <div class="container">
+        <div class="card col-lg-6" *ngFor="let item of puzzle?.slice(index - 1, index)">
+          <div class="card-body">
+  
+            <div class="text-center">
+              <h2>{{ item.puzzle_name }}</h2>
+            </div>
+            <div class="question">
+              <h3 class="card-title">{{ item.puzzle_question }}</h3>
+            </div>
+  
+            <br />
+            <h4>Answer:</h4>
+            <input type="text" name="puzzle_answer" class="form-control col-xs-2" (input)="OnInput($event)" /><br /><br />
+  
+            <button (click)="checkAns(item.puzzle_id)" class="btn btn-block btn-warning" [disabled]="item.isDisabled">
+              Check Answer
+            </button>
+  
+            <div id="{{ item.puzzle_id }}"></div>
+            <div *ngIf="item.isDisabled" #op1>
+              <h1>Answer : {{ item.puzzle_answer }}</h1>
+              <h4>Explaination : {{ item.puzzle_explanation }}</h4>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center ">
+      <button (click)="pre()" class="btn mybtn m-2 btn-primary" [disabled]="disablePreviousButton"> Previous </button>
+      <button (click)="next()" class="btn mybtn m-2 btn-success" [disabled]="disableNextButton" > Next </button>
+    </div>
+  
+    <!-- <input type="button" class="btn btn-lg mx-auto d-block m-2" value="Submit" (click)="post()" /> -->
+  </form>

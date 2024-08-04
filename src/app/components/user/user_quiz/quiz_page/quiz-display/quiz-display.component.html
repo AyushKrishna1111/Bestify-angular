@@ -1,0 +1,86 @@
+<div class="container border p-4">
+<div class="row">
+    <div class="col-11">
+      <p class="h1 text-center">{{ quiz.quiz_name }}</p>
+    </div>
+
+<!-- favorite icon  -->
+    <!-- <div class="col-1">
+      <button mat-icon-button (click)="onToggleFavButton()">
+        <mat-icon *ngIf="isFav"> favorite </mat-icon>
+        <mat-icon *ngIf="!isFav"> favorite_border </mat-icon>
+      </button>
+    </div> -->
+  
+  </div>
+  <div class="pt-2">
+    <p class="text-justify">{{ quiz.description }}</p>
+    <p class="h6 text-center">Time to complete quiz : {{ timeString }}</p>
+  
+    <button
+      class="btn btn-block"
+      [disabled]="disableMainButton"
+      [class.btn-primary]="mainButtonText === 'Start Quiz'"
+      [class.btn-danger]="mainButtonText === 'Pause Quiz'"
+      [class.btn-warning]="mainButtonText === 'Resume Quiz'"
+      [class.btn-success]="mainButtonText === 'Quiz Submitted'"
+      (click)="onMainButtonClick()"
+    >
+      {{ mainButtonText }}
+    </button>
+    <div *ngIf="showQuestions">
+      <app-quiz-display-question
+        *ngFor="let ques of quiz.questions"
+        [quesobject]="ques"
+        [state]="quizDataService.state"
+      ></app-quiz-display-question>
+      <button class="btn btn-block btn-success mt-4" (click)="submitQuiz()">Submit</button>
+    </div>
+    <div class="timer" #timer></div>
+  </div>
+  
+  <!-- The Modal -->
+
+  <!-- <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+       
+        <div class="pt-3 bg-primary text-white">
+          <p class="h6 text-center">{{ modalHeader }}</p>
+        </div>
+  
+        <div class="modal-body">
+          <img [src]="imagePath" height="250px" width="250px" />
+          <p class="mt-1">{{ modalBody }}</p>
+        </div>
+  
+       
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-block" (click)="hideModalFunc()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+  <!-- MODAL ENDS HERE -->
+
+</div>
+
+<ng-template #modalcontent let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title">{{ modalHeader }}</h2>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <img [src]="imagePath" height="150px" width="150px"/>
+    
+    <p class="mt-1 text-justify">{{ modalBody }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

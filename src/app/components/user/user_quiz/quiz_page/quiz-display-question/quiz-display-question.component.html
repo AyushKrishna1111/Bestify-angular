@@ -1,0 +1,121 @@
+<div class="question">
+    <p class="h6">{{ quesobject.question }}</p>
+  </div>
+  <ul>
+    <li>
+      <div>
+        <input
+          type="radio"
+          name="options"
+          (change)="selected('a')"
+          [disabled]="disabled"
+        />
+        <span
+          for="options"
+          [class.wrongAns]="wrongAns === 'a'"
+          [class.correctAns]="correctAns === 'a'"
+          >{{ quesobject.option1 }}
+        </span>
+        <img
+          *ngIf="wrongAns === 'a'"
+          src="'../../../../assets/images/wrong.png"
+          height="20px"
+          width="20px"
+        />
+        <img
+          *ngIf="correctAns === 'a'"
+          src="'../../../../assets/images/correct.png"
+          height="20px"
+          width="20px"
+        />
+      </div>
+    </li>
+  
+    <li>
+      <div>
+        <input
+          type="radio"
+          name="options"
+          (change)="selected('b')"
+          [disabled]="disabled"
+        />
+        <span
+          for="options"
+          [class.wrongAns]="wrongAns === 'b'"
+          [class.correctAns]="correctAns === 'b'"
+          >{{ quesobject.option2 }}
+        </span>
+        <img
+          *ngIf="wrongAns === 'b'"
+          src="'../../../../assets/images/wrong.png"
+          height="20px"
+          width="20px"
+        />
+        <img
+          *ngIf="correctAns === 'b'"
+          src="'../../../../assets/images/correct.png"
+          height="20px"
+          width="20px"
+        />
+      </div>
+    </li>
+  
+    <li>
+      <div>
+        <input
+          type="radio"
+          name="options"
+          (change)="selected('c')"
+          [disabled]="disabled"
+        />
+        <span
+          for="options"
+          [class.wrongAns]="wrongAns === 'c'"
+          [class.correctAns]="correctAns === 'c'"
+          >{{ quesobject.option3 }}
+        </span>
+        <img
+          *ngIf="wrongAns === 'c'"
+          src="'../../../../assets/images/wrong.png"
+          height="20px"
+          width="20px"
+        />
+        <img
+          *ngIf="correctAns === 'c'"
+          src="'../../../../assets/images/correct.png"
+          height="20px"
+          width="20px"
+        />
+      </div>
+    </li>
+  
+    <li>
+      <div>
+        <input
+          type="radio"
+          name="options"
+          (change)="selected('d')"
+          [disabled]="disabled"
+        />
+        <span
+          for="options"
+          [class.wrongAns]="wrongAns === 'd'"
+          [class.correctAns]="correctAns === 'd'"
+          >{{ quesobject.option4 }}
+        </span>
+        <img
+          *ngIf="wrongAns === 'd'"
+          src="'../../../../assets/images/wrong.png"
+          height="20px"
+          width="20px"
+        />
+        <img
+          *ngIf="correctAns === 'd'"
+          src="'../../../../assets/images/correct.png"
+          height="20px"
+          width="20px"
+        />
+      </div>
+    </li>
+  </ul>
+  

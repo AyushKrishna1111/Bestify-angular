@@ -1,0 +1,40 @@
+
+ <div class="container">
+ <h1> Welcome Admin </h1>
+ <p> What would you like to do ?</p>
+ <br>
+ <div class="card-deck">
+    <div class="card" (click)="openQuizPage()">
+        <fa-icon [icon]="faQuestion" class="text-center"></fa-icon>
+      <div class="card-body">
+        <h2 class="card-title text-center">Quiz Tasks</h2>
+        <p class="card-text">In this section you can :</p>
+        <ol>
+            <li>Create new quizzes for the users</li>
+            <li>Check which quiz is attempted how many times</li>
+        </ol>
+      </div>
+    </div>
+    <div class="card" (click)="openPuzzlePage()">
+        <fa-icon [icon]="faPuzzlePiece" class="text-center"></fa-icon>
+      <div class="card-body">
+        <h2 class="card-title text-center">Puzzle Tasks</h2>
+        <p class="card-text">In this section you can :</p>
+        <ol>
+            <li>Create new puzzles for the users</li>
+        </ol>
+      </div>
+    </div>
+    <div class="card" (click)="openGamesPage()">
+        <fa-icon [icon]="faGamepad" class="text-center"></fa-icon>
+      <div class="card-body">
+        <h2 class="card-title text-center">Games Tasks</h2>
+        <p class="card-text">In this section you can :</p>
+        <ol>
+            <li>Check top scorers for Games</li>
+            <li>Check which game has been played by how many users</li>
+        </ol>  
+    </div>
+    </div>
+  </div>
+</div>
